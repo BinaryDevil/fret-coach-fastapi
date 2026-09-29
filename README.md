@@ -12,6 +12,14 @@ uv run fastapi dev app/main.py --port 3000
 
 The API is at `http://localhost:3000/api/v1`; interactive docs are at `http://localhost:3000/api/docs`. SQLite creates `fret_coach.db` in this folder the first time the app starts. The seed adds four original exercises with generated timelines. No source database or source-repository files are changed.
 
+## Tests
+
+```sh
+uv run pytest
+```
+
+Each test uses its own temporary SQLite file; Supabase Storage and Google sign-in are replaced with fakes, so no network access or `.env` is needed.
+
 ## What to compare while learning
 
 - FastAPI route declarations and Pydantic request validation: `app/main.py`, `app/schemas.py`
